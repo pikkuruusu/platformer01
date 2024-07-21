@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg8rhc63lefym"]
+
+[ext_resource type="Texture2D" uid="uid://6derxfgtf2ii" path="res://assets/characters/islander_.png" id="1_3yv0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y84hr"]
+atlas = ExtResource("1_3yv0t")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84f6l"]
+atlas = ExtResource("1_3yv0t")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7l1d"]
+atlas = ExtResource("1_3yv0t")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhf73"]
+atlas = ExtResource("1_3yv0t")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn2jn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y84hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84f6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7l1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhf73")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_se0j5"]
+size = Vector2(7, 11)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fn2jn")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.752306
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_se0j5")
